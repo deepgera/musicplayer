@@ -8,7 +8,12 @@ const port = process.env.PORT || 5000;
 ////////cors()
 
 app.use(cors());
-app.use(express.static(path.resolve(__dirname, '../webpage/build')));
+if (process.env.NODE_ENV === 'production') {
+app.use(express.static(path.resolve(__dirname, 'webpage/build')));
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'webpage/build', 'index.html'));
+});
+}
 ////////port open
 app.listen(port, () => {
   console.log(`Server Works !!! At port ${port}`);
