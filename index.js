@@ -21,14 +21,21 @@ app.listen(port, () => {
 
 /////get request handel here get url for one video
 
-app.get("/download", (req, res) => {
-  var URL = req.query.URL;
-
-  ytdl
+app.get("/download", async(req, res) => {
+  try{
+    var URL = req.query.URL;
+    const info = await ytdl.getInfo(URL);
+    const format = ytdl.filterFormats(info.formats, "audioonly");
+    res.json(format[1].url);
+ 
+ /* ytdl
     .getInfo(URL)
     .then((info) => {
       const format = ytdl.filterFormats(info.formats, "audioonly");
       res.json(format[1].url);
-    })
-    .catch((err) => console.log(err));
+   */
+    }
+    catch(err) {console.log(err)
+      res.json({"link no found error":err})
+    };
 });

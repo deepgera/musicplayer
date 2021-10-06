@@ -67,7 +67,7 @@ var  getsadsong= async () => {
     var tredingList = await getPopularList('top 20 motivational workout songs ');
     var songid = tredingList[0].id;
     var songUrl = await axios(`/download?URL=${songid}`);
-    console.log(songUrl);
+     console.log(songUrl);
     //setsongcover(songUrl.data);
     //console.log(songcover);
   
