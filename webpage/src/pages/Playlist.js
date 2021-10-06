@@ -83,7 +83,7 @@ function Playlist() {
   
       //var songid = List[0].id;
     const fetchurl=async(id,key)=>{
-      var songUrl = await axios(`http://localhost:5000/download?URL=${id}`);
+      var songUrl = await axios(`/download?URL=${id}`);
       console.log(songUrl);
       await setsongurl(songUrl.data);
       setplaysong(true);

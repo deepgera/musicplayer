@@ -73,7 +73,7 @@ export function SliderCard(){
       console.log(Songdata);
    }
 const fetchurl=async()=>{
-      var songUrl = await axios(`http://localhost:5000/download?URL=${songid}`);
+      var songUrl = await axios(`/download?URL=${songid}`);
       
       console.log(songUrl);
       setplaysong(true);
