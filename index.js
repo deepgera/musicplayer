@@ -36,6 +36,6 @@ app.get("/download", async(req, res) => {
    */
     }
     catch(err) {console.log(err)
-      res.json({"link no found error":err})
+      res.json({"link not found error":err})
     };
 });
