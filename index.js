@@ -8,19 +8,6 @@ const port = process.env.PORT || 5000;
 ////////cors()
 
 app.use(cors());
-if (process.env.NODE_ENV === 'production') {
-app.use(express.static(path.resolve(__dirname, 'webpage/build')));
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'webpage/build', 'index.html'));
-});
-}
-////////port open
-app.listen(port, () => {
-  console.log(`Server Works !!! At port ${port}`);
-});
-
-/////get request handel here get url for one video
-
 app.get("/download", async(req, res) => {
   try{
     var URL = req.query.URL;
@@ -39,3 +26,16 @@ app.get("/download", async(req, res) => {
       res.json({"link not found error":err})
     };
 });
+if (process.env.NODE_ENV === 'production') {
+app.use(express.static(path.resolve(__dirname, 'webpage/build')));
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'webpage/build', 'index.html'));
+});
+}
+////////port open
+app.listen(port, () => {
+  console.log(`Server Works !!! At port ${port}`);
+});
+
+/////get request handel here get url for one video
+

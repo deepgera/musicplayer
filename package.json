@@ -1,16 +1,16 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "this a online music player ",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js " ,
+    "start": "node index.js ",
     "dev": "concurrently \"npm run start\" \"npm run client \"",
     "client": "cd webpage && npm run start",
     "server": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "concurrently \"npm run start\" \"cd webpage && npm install && npm run start\"",
-    "heroku-postbuild":"cd webpage && npm install && npm run start"
+    "heroku-postbuild": "cd webpage && npm install && npm run build"
   },
   "author": "deepak gera",
   "license": "ISC",
@@ -20,6 +20,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
+    "nodemon": "^2.0.13",
     "path": "^0.12.7",
     "ytdl-core": "^4.9.1"
   }
