@@ -10,7 +10,7 @@
     "server": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "concurrently \"npm run start\" \"cd webpage && npm install && npm run start\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false cd webpage && npm install && npm run start"
+    "heroku-postbuild":"cd webpage && npm install && npm run start"
   },
   "author": "deepak gera",
   "license": "ISC",
